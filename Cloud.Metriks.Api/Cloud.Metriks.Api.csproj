@@ -14,6 +14,7 @@
     <Folder Include="Common\" />
     <Folder Include="Context\" />
     <Folder Include="Dao\Context\" />
+    <Folder Include="Dao\EntityConfiguration\" />
     <Folder Include="Dao\Repository\" />
     <Folder Include="DataService\" />
     <Folder Include="Interface\Repository\" />
