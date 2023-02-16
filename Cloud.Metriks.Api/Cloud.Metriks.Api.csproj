@@ -13,14 +13,13 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Context\" />
+    <Folder Include="Dao\Context\" />
+    <Folder Include="Dao\Repository\" />
     <Folder Include="DataService\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Model\Contract\" />
-    <Folder Include="Model\Entity\" />
+    <Folder Include="Interface\Repository\" />
     <Folder Include="Filters\" />
     <Folder Include="Validators\" />
     <Folder Include="Util\" />
-    <Folder Include="Service\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 
