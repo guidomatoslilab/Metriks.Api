@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cloud.Metriks.Api.Model.Contract.Persona;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Cloud.Metriks.Api.Interface.Service.Persona
 {
     public interface IPersonaService
     {
-        void Buscar(string rut);
+        PersonaResultContract Buscar(string rut);
     }
 }

@@ -1,4 +1,8 @@
-﻿using Cloud.Metriks.Api.Interface.Service.Persona;
+﻿using AutoMapper;
+using Cloud.Metriks.Api.Interface.Repository.Persona;
+using Cloud.Metriks.Api.Interface.Service.Persona;
+using Cloud.Metriks.Api.Model.Contract.Persona;
+using Cloud.Metriks.Api.Model.Entity.Persona;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +13,19 @@ namespace Cloud.Metriks.Api.Service.Persona
 {
     public class PersonaService : IPersonaService
     {
-        public void Buscar(string rut)
+        private readonly IPersonaRepository _personaRepository;
+        private readonly IMapper _mapper;
+
+        public PersonaService(IPersonaRepository personaRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _personaRepository = personaRepository;
+            _mapper = mapper;
+        }
+
+        public PersonaResultContract Buscar(string rut)
+        {
+            PersonaEntity persona = _personaRepository.Buscar(rut);
+            return _mapper.Map<PersonaResultContract>(persona);
         }
     }
 }
