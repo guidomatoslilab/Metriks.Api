@@ -1,4 +1,5 @@
-﻿using Cloud.Metriks.Api.Model.Entity.Persona;
+﻿using Cloud.Metriks.Api.Model.Contract.Persona;
+using Cloud.Metriks.Api.Model.Entity.Persona;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Cloud.Metriks.Api.Interface.Repository.Persona
 {
     public interface IPersonaRepository
     {
-        PersonaEntity Buscar(string rut);
+        PersonaResponseDto Buscar(string rut);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Cloud.Metriks.Api.Dao.Context;
 using Cloud.Metriks.Api.Interface.Repository.Persona;
+using Cloud.Metriks.Api.Model.Contract.Persona;
 using Cloud.Metriks.Api.Model.Entity.Persona;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,14 @@ namespace Cloud.Metriks.Api.Dao.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public PersonaEntity Buscar(string rut)
+        public PersonaResponseDto Buscar(string rut)
         {
-            PersonaEntity aux = _context.Persona.Where(b => b.prg_vch_rut.Equals(rut)).FirstOrDefault();
+            PersonaResponseDto aux = _context.Persona.Where(b => b.prg_vch_rut.Equals(rut))
+            .Select(s => new PersonaResponseDto() {
+            Id = s.prg_int_idpersona,
+            RazonSocial = s.prg_vch_razonsocial,
+            RutEjecutivo = s.prg_vch_rut
+            }).FirstOrDefault();
             return aux;
         }
     }

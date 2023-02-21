@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Dao\EntityConfiguration\" />
     <Folder Include="DataService\" />
     <Folder Include="Filters\" />
     <Folder Include="Validators\" />

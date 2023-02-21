@@ -1,5 +1,7 @@
-﻿using Cloud.Metriks.Api.Interface.Repository.Persona;
+﻿using AutoMapper;
+using Cloud.Metriks.Api.Interface.Repository.Persona;
 using Cloud.Metriks.Api.Interface.Service.Persona;
+using Cloud.Metriks.Api.ViewModel.Persona;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,10 +17,12 @@ namespace Cloud.Metriks.Api.Controllers
     {
 
         private readonly IPersonaService _personaService;
+        private readonly IMapper _mapper;
 
-        public PersonaController(IPersonaService personaService)
+        public PersonaController(IPersonaService personaService, IMapper mapper)
         {
             _personaService = personaService;
+            _mapper = mapper;
         }
 
 
@@ -26,8 +30,11 @@ namespace Cloud.Metriks.Api.Controllers
         [Route("[action]/{rut}")]
         public ActionResult Buscar(string rut)
         {
-            var res = _personaService.Buscar(rut);
-            return Ok(res);
+            var personaResponseDto = _personaService.Buscar(rut);
+
+            var response = _mapper.Map<PersonaResponseViewModel>(personaResponseDto);
+
+            return Ok(response);
         }
     }
 }

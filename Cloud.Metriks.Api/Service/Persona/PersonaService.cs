@@ -14,18 +14,16 @@ namespace Cloud.Metriks.Api.Service.Persona
     public class PersonaService : IPersonaService
     {
         private readonly IPersonaRepository _personaRepository;
-        private readonly IMapper _mapper;
 
-        public PersonaService(IPersonaRepository personaRepository, IMapper mapper)
+        public PersonaService(IPersonaRepository personaRepository)
         {
             _personaRepository = personaRepository;
-            _mapper = mapper;
         }
 
-        public PersonaResultContract Buscar(string rut)
+        public PersonaResponseDto Buscar(string rut)
         {
-            PersonaEntity persona = _personaRepository.Buscar(rut);
-            return _mapper.Map<PersonaResultContract>(persona);
+            PersonaResponseDto persona = _personaRepository.Buscar(rut);
+            return persona;
         }
     }
 }

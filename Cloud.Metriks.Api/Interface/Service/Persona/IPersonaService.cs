@@ -9,6 +9,6 @@ namespace Cloud.Metriks.Api.Interface.Service.Persona
 {
     public interface IPersonaService
     {
-        PersonaResultContract Buscar(string rut);
+        PersonaResponseDto Buscar(string rut);
     }
 }

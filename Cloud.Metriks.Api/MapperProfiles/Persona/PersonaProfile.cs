@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cloud.Metriks.Api.Model.Contract.Persona;
 using Cloud.Metriks.Api.Model.Entity.Persona;
+using Cloud.Metriks.Api.ViewModel.Persona;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace Cloud.Metriks.Api.MapperProfiles.PersonaProfiles
     {
         public PersonaProfile()
         {
-            CreateMap<PersonaEntity, PersonaResultContract>()
-            .ForMember(x => x.Id, y => y.MapFrom(c =>
-                c.prg_int_idpersona))
-            .ForMember(x => x.RazonSocial, y => y.MapFrom(c => c.prg_vch_razonsocial));
+            //CreateMap<PersonaEntity, PersonaResponseDto>()
+            //.ForMember(x => x.Id, y => y.MapFrom(c =>
+            //    c.prg_int_idpersona))
+            //.ForMember(x => x.RazonSocial, y => y.MapFrom(c => c.prg_vch_razonsocial));
+
+            CreateMap<PersonaResponseDto,PersonaResponseViewModel>();
         }
     }
 }
