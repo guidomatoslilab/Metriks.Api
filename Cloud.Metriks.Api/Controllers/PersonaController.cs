@@ -65,5 +65,28 @@ namespace Cloud.Metriks.Api.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("[action]/{rut}")]
+        public async Task<IActionResult> Search(string rut)
+        {
+            //IActionResult response = BadRequest(new { message = ErrorMessage.RequestError });
+            IActionResult response = BadRequest(new { message = "No se pudo realizar la consulta, ocurrio un error, consulte con su administrador." });
+
+            var requestDto = new BusquedaPersonaRequestDto
+            {
+                rut = rut
+            };
+            var busquedaPersonaResponseDto = await _personaService.BuscarPersona(requestDto);
+
+
+            if (busquedaPersonaResponseDto.Error == null)
+            {
+                var responseViewModel = _mapper.Map<BusquedaPersonaResponseViewModel>(busquedaPersonaResponseDto);
+                response = Ok(responseViewModel);
+            }
+
+            return Ok(response);
+        }
     }
 }

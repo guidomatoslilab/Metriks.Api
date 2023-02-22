@@ -1,4 +1,5 @@
 ﻿using Cloud.Metriks.Api.Model.Contract.Persona;
+using Cloud.Metriks.Api.Model.Dto.Persona;
 using Cloud.Metriks.Api.Model.Entity.Persona;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace Cloud.Metriks.Api.Interface.Repository.Persona
     public interface IPersonaRepository
     {
         PersonaResponseDto Buscar(string rut);
+        Task<BusquedaPersonaResponseDto> SearchPersona(BusquedaPersonaRequestDto requestDto);
     }
 }
