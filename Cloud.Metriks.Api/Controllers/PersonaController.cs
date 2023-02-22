@@ -3,6 +3,7 @@ using Cloud.Metriks.Api.Interface.Repository.Persona;
 using Cloud.Metriks.Api.Interface.Service.Persona;
 using Cloud.Metriks.Api.Model.Contract.Persona;
 using Cloud.Metriks.Api.Model.Dto.Empleado;
+using Cloud.Metriks.Api.Model.Dto.Persona;
 using Cloud.Metriks.Api.ViewModel.Empleado;
 using Cloud.Metriks.Api.ViewModel.Persona;
 using Microsoft.AspNetCore.Mvc;
@@ -46,11 +47,12 @@ namespace Cloud.Metriks.Api.Controllers
         [Route("[action]/{rut}")]
         public ActionResult ObtenerLineas(string rut)
         {
-            EmpleadoResponseDto empleadoResponseDto = _empleadoService.Buscar(rut);
+            //EmpleadoResponseDto empleadoResponseDto = _personaService.Buscar(rut);
 
-            EmpleadoResponseViewModel response = _mapper.Map<EmpleadoResponseViewModel>(empleadoResponseDto);
+            //EmpleadoResponseViewModel response = _mapper.Map<EmpleadoResponseViewModel>(empleadoResponseDto);
 
-            return Ok(response);
+            //return Ok(response);
+            return Ok();
         }
 
 
@@ -59,11 +61,12 @@ namespace Cloud.Metriks.Api.Controllers
         [Route("[action]/{rut}")]
         public ActionResult ObtenerSubLineas(string rut)
         {
-            EmpleadoResponseDto empleadoResponseDto = _empleadoService.Buscar(rut);
+            //EmpleadoResponseDto empleadoResponseDto = _personaService.Buscar(rut);
 
-            EmpleadoResponseViewModel response = _mapper.Map<EmpleadoResponseViewModel>(empleadoResponseDto);
+            //EmpleadoResponseViewModel response = _mapper.Map<EmpleadoResponseViewModel>(empleadoResponseDto);
 
-            return Ok(response);
+            //return Ok(response);
+            return Ok();
         }
 
         [HttpGet]
