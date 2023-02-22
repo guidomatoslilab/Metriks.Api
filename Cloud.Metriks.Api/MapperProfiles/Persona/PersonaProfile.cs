@@ -14,12 +14,9 @@ namespace Cloud.Metriks.Api.MapperProfiles.PersonaProfiles
     {
         public PersonaProfile()
         {
-            //CreateMap<PersonaEntity, PersonaResponseDto>()
-            //.ForMember(x => x.Id, y => y.MapFrom(c =>
-            //    c.prg_int_idpersona))
-            //.ForMember(x => x.RazonSocial, y => y.MapFrom(c => c.prg_vch_razonsocial));
-
+            #region MAPEO DTO A VIEWMODEL
             CreateMap<PersonaResponseDto,PersonaResponseViewModel>();
+            #endregion
         }
     }
 }

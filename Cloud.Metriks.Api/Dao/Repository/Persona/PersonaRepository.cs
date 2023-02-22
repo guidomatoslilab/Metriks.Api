@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cloud.Metriks.Api.Dao.Repository
+namespace Cloud.Metriks.Api.Dao.Repository.Persona
 {
     public class PersonaRepository : IPersonaRepository
     {
@@ -22,10 +22,11 @@ namespace Cloud.Metriks.Api.Dao.Repository
         public PersonaResponseDto Buscar(string rut)
         {
             PersonaResponseDto aux = _context.Persona.Where(b => b.prg_vch_rut.Equals(rut))
-            .Select(s => new PersonaResponseDto() {
-            Id = s.prg_int_idpersona,
-            RazonSocial = s.prg_vch_razonsocial,
-            RutEjecutivo = s.prg_vch_rut
+            .Select(s => new PersonaResponseDto()
+            {
+                Id = s.prg_int_idpersona,
+                RazonSocial = s.prg_vch_razonsocial,
+                RutEjecutivo = s.prg_vch_rut
             }).FirstOrDefault();
             return aux;
         }

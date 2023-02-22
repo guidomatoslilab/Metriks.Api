@@ -1,7 +1,11 @@
 using Cloud.Metriks.Api.Dao.Context;
-using Cloud.Metriks.Api.Dao.Repository;
+using Cloud.Metriks.Api.Dao.Repository.Empleado;
+using Cloud.Metriks.Api.Dao.Repository.Persona;
+using Cloud.Metriks.Api.Interface.Repository.Empleado;
 using Cloud.Metriks.Api.Interface.Repository.Persona;
+using Cloud.Metriks.Api.Interface.Service.Empleado;
 using Cloud.Metriks.Api.Interface.Service.Persona;
+using Cloud.Metriks.Api.Service.Empleado;
 using Cloud.Metriks.Api.Service.Persona;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +20,11 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddScoped<IPersonaService, PersonaService>();
+builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 
 builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
+builder.Services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
